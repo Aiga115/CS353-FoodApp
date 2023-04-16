@@ -1,0 +1,70 @@
+body {
+    background-color: #a55233;
+  }
+  
+  .card {
+    background-color: #a55233;
+  }
+  .rounded {
+    border-radius: 5rem;
+  }
+  .nav-pills .nav-link {
+    color: #555;
+  }
+  .nav-pills .nav-link.active {
+    color: white;
+  }
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  
+  .buttonClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    text-align: center;
+    width: 150px;
+    background-color: #f3bc77;
+    border-radius: 5%;
+    border: #f3bc77;
+  }
+  
+  .button{
+      place-self: center;
+      text-align: center;
+      width: 170px;
+      background-color: #f3bc77;
+      border-radius: 5%;
+      border: #f3bc77;
+    }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-inner {
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #f3bc77;
+  }
+  
+  .popup-inner.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: #f3bc77;
+  }
+  

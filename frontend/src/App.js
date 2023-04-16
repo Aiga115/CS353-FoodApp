@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Container from "./components/Container/Container";
+// import Profile from "./components/Profile/Profile";
+import Admin from "./components/Admin";
+import PaymentForm from "./components/PaymentForm";
+import Login from "./pages/Login";
+import Registration from "./pages/Registration";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+
+        <Router>
+          <Sidebar />
+          <Routes>
+            {/* <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Registration/>}/> */}
+            <Route path="/" element={<Container />} />
+            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/pay" element={<PaymentForm></PaymentForm>}></Route>
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 
