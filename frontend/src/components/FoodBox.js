@@ -43,7 +43,7 @@ function FoodBox({ imgSrc, title, price }) {
           Add to cart
         </button> */}
         <div>
-        <button onClick={notify} className="btn">Add to cart</button>
+        <button onClick={notify} className="btn" style={{color: '#333'}}>Add to cart</button>
 
         </div>
       </div>
