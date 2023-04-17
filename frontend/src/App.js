@@ -1,7 +1,7 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Container from "./components/Container/Container";
-// import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile/Profile";
 import Admin from "./components/Admin";
 import PaymentForm from "./components/PaymentForm";
 import Login from "./pages/Login";
@@ -20,7 +20,7 @@ function App() {
             {/* <Route path="/" element={<Login />} />
             <Route path="/register" element={<Registration/>}/> */}
             <Route path="/" element={<Container />} />
-            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/profile" element={<Profile />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/restaurants" element={<RestaurantsPage/>} />
             <Route path="/pay" element={<PaymentForm></PaymentForm>}></Route>
