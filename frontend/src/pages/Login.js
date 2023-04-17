@@ -74,7 +74,7 @@ const Login = () => {
                 <TextField label="Password" size='small' />
                 <TextField label="Fullname" size='small' />
                 <Box m={1} display="flex" gap={0.5} mt={2}>
-                    <Typography sx={{ fontSize: '14px' }}>Don't have an account?</Typography>
+                    <Typography sx={{ fontSize: '14px' }}>Don't have an account ?</Typography>
                     <Link to="/register">
                         <Typography color="primary" sx={{ fontSize: '14px', color: '#f96d00' }}>Register</Typography>
                     </Link>
