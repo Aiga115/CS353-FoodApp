@@ -3,13 +3,17 @@ import "./Container.css";
 import TopSect from "../TopSect"
 import FoodCont from "../FoodCont";
 import Filter from "../Filter/Filter";
+import FilterRestaurant from "../Filter/FilterRestaurant";
 
 
 function Container() {
   return (
     <div className="container">
       <TopSect />
-      <Filter/>
+      <div style={{display: 'flex'}}>
+        <Filter />
+        <FilterRestaurant/>
+      </div>
       <FoodCont />
     </div>
   );
