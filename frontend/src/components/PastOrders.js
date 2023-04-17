@@ -1,14 +1,15 @@
 import React from "react";
-
+import Table from 'react-bootstrap/Table';
+import "./PastOrders.css";
 
 function PastOrder() {
   return (
     <section className="profile-container">
       <h2>Past Orders</h2>
-      <table>
+      <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th>#</th>
+            <th >#</th>
             <th>Date</th>
             <th>Restaurant Name</th>
             <th>Item</th>
@@ -42,7 +43,7 @@ function PastOrder() {
             <td>200 tl</td>
           </tr>
         </tbody>
-      </table>
+      </Table>
     </section>
   )
 }
