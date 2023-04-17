@@ -38,7 +38,14 @@ const Home = () => {
   }, []);
   const [buttonPopup, setButtonPopup] = useState(false);
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
       <section className="profile-container">
         <img src={image} className="profile-img" alt="user" />
         <section className="profile-details">
@@ -46,16 +53,16 @@ const Home = () => {
             <b>Asli</b>
           </h1>
           <p className="profile-loc">
-            <b>ID: 123456</b>
-          </p>
-          <p className="profile-loc">
             <b>Username: aslikaraman</b>
           </p>
           <p className="profile-loc">
             <b>Full name: Asli Karaman</b>
           </p>
           <p className="profile-loc">
-            <b>Email: asli.karaman@ug.bilkent.edu.tr</b>
+            <b>Email address: asli.karaman@ug.bilkent.edu.tr</b>
+          </p>
+          <p className="profile-loc">
+            <b>Phone number: 1234567890</b>
           </p>
           <p className="profile-loc">
             <b>Registered Address 1: Bilkent University</b>
@@ -65,7 +72,12 @@ const Home = () => {
           </p>
           <button className="profile-btn">Edit</button>
           <p>
-            <button className="profile-btn" onClick={() => setButtonPopup(true)}>Register a new credit card</button>
+            <button
+              className="profile-btn"
+              onClick={() => setButtonPopup(true)}
+            >
+              Register a new credit card
+            </button>
           </p>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <div>
@@ -74,7 +86,7 @@ const Home = () => {
                   <form role="form">
                     <div class="form-group">
                       <label for="cardNumber">
-                        <h6>Card Name</h6>
+                        <h6 style={{ color: "#fff" }}>Card name</h6>
                       </label>
                       <div class="input-group">
                         <input
@@ -89,7 +101,7 @@ const Home = () => {
                     <div class="row">
                       <div class="form-group">
                         <label for="cardNumber">
-                          <h6>Balance</h6>
+                          <h6 style={{ color: "#fff" }}>Balance</h6>
                         </label>
                         <div class="input-group">
                           <input
@@ -108,8 +120,7 @@ const Home = () => {
                         Add new credit card
                       </button>
                     </div>
-                    <div>
-                    </div>
+                    <div></div>
                   </form>
                 </div>
               </div>
@@ -117,7 +128,7 @@ const Home = () => {
           </Popup>
         </section>
       </section>
-      <PastOrder/>
+      <PastOrder />
     </div>
   );
 };
