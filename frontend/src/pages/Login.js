@@ -72,7 +72,7 @@ const Login = () => {
                 </Box>
                 <TextField label="Email" size='small' />
                 <TextField label="Password" size='small' />
-                <TextField label="Fullname" size='small' />
+                <TextField label="Username" size='small' />
                 <Box m={1} display="flex" gap={0.5} mt={2}>
                     <Typography sx={{ fontSize: '14px' }}>Don't have an account ?</Typography>
                     <Link to="/register">
