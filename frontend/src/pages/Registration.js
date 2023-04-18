@@ -73,6 +73,9 @@ const Registration = () => {
                 <TextField label="Email" size='small'/>
                 <TextField label="Password" size='small' />
                 <TextField label="Fullname" size='small'/>
+                <TextField label="Username" size='small'/>
+                <TextField label="Address" size='small'/>
+                <TextField label="Number" size='small'/>
                 <Box m={1} display="flex" gap={0.5} mt={2}>
                     <Typography sx={{ fontSize: '14px' }}>Already have an account?</Typography>
                     <Link to="/">
