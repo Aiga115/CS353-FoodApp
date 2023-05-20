@@ -7,7 +7,7 @@ function PaymentFormPopup(props) {
     <div className="popup">
       <div className="popup-inner">
         <button className="buttonClose" onClick={() => props.setTrigger(false)}>
-          Close
+          
         </button>
         {props.children}
       </div>
