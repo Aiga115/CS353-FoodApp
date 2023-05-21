@@ -18,7 +18,7 @@ function SideBar() {
       <ul className="top-menu">
         <Link to="/"><Icon icon={<FaHome title="Order"/>} /></Link>
         <Link to="/profile"><Icon icon={<FaUser title="Your Profile"/>} /></Link>
-        <Link><Icon icon={<FaSignOutAlt/>} /></Link>
+        <Link to="/"><Icon icon={<FaSignOutAlt title="Sign out"/>} /></Link>
       </ul>
     </header>
   );
