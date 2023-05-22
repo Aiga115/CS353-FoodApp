@@ -1,0 +1,50 @@
+.profile-container {
+    min-width: 500px;
+    color:brown;
+    margin: auto;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 2rem 3rem;
+    margin-top: 5rem;
+    text-align: center;
+  }
+  
+  
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  
+  .profile-container .profile-details {
+    text-align: center;
+  }
+  
+  .profile-name {
+    font-size: 27px;
+    color: black;
+  }
+  
+  .profile-loc {
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+  }
+  
+  .profile-btn {
+    width:200px;
+    place-self: center;
+    text-align: center;
+    background-color:#402a23;
+    border-radius: 5px;
+    color:aliceblue;
+    margin-top: 30px;
+  }
+  
+  
+  
+  
+  
+  
+  
