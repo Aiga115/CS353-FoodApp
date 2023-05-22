@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import image from "./RestaurantOwnerProfileImage/profile.jpg";
 import Table from "react-bootstrap/Table";
 import "reactjs-popup/dist/index.css";
+import RestaurantOwnerRestaurantList from "./RestaurantOwnerRestaurantList"
 
 const RestaurantOwnerProfilePage = () => {
   const [events, setEvents] = useState([]);
@@ -73,6 +74,7 @@ const RestaurantOwnerProfilePage = () => {
           </p>
         </section>
       </section>
+      <RestaurantOwnerRestaurantList />
     </div>
   );
 };

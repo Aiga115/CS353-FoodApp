@@ -6,9 +6,10 @@ import PaymentForm from "./components/PaymentForm";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import RestaurantsPage from "./pages/RestaurantsPage";
-import Reviews from "./pages/Reviews";
+import ReviewPage from "./pages/ReviewPage";
 import SidebarLayout from "./layouts/SidebarLayout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RestaurantOwnerProfilePage from "./pages/RestaurantOwnerProfilePage/RestaurantOwnerProfilePage";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
               <Route path="/admin" element={<Admin />} />
               <Route path="/restaurants" element={<RestaurantsPage />} />
               <Route path="/pay" element={<PaymentForm></PaymentForm>}></Route>
-              <Route path="/review" element={<Reviews />} />
+              <Route path="/review" element={<ReviewPage />} />
+              <Route path="/RestaurantOwnerProfilePage" element={<RestaurantOwnerProfilePage />} />
             </Route>
           </Routes>
         </Router>
