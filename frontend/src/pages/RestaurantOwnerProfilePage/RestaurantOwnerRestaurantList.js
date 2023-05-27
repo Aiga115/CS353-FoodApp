@@ -1,16 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../components/Container/Container.css";
 import TopSect from "../../components/TopSect";
 import Table from 'react-bootstrap/Table';
-import { FaTrashAlt } from "react-icons/fa";
+import "reactjs-popup/dist/index.css";
+import Popup from "./EditMenuPopup";
 
-const Icon = ({ icon }) => (
-  <li>
-    <p href="">{icon}</p>
-  </li>
-);
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 function RestaurantOwnerRestaurantList() {
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <div className="container">
       <div className="admin">
@@ -18,39 +14,85 @@ function RestaurantOwnerRestaurantList() {
         <Table>
           <thead>
             <tr>
-              <th>#</th>
               <th>Restaurant Name</th>
-              <th>Total number of orders</th>
-              <th>Rank</th>
-              <th></th>
+              <th>Edit Menu</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b>1</b></td>
               <td><b>Burger King</b></td>
-              <td><b>22</b></td>
-              <td><b>#1</b></td>
-              <td><button type="button" class="btn btn-info" >Detailed Info</button></td>
+              <td><button type="button" class="btn btn-info" onClick={() => setButtonPopup(true)}>Edit</button></td>
             </tr>
             <tr>
-              <td><b>2</b></td>
               <td><b>Mc Donalds</b></td>
-              <td><b>30</b></td>
-              <td><b>#2</b></td>
-              <td><button type="button" class="btn btn-info" >Detailed Info</button></td>
+              <td><button type="button" class="btn btn-info" onClick={() => setButtonPopup(true)}>Edit</button></td>
             </tr>
             <tr>
-              <td><b>3</b></td>
               <td><b>KFC</b></td>
-              <td><b>24</b></td>
-              <td><b>#4</b></td>
-              <td><button type="button" class="btn btn-info" >Detailed Info</button></td>
+              <td><button type="button" class="btn btn-info" onClick={() => setButtonPopup(true)}>Edit</button></td>
             </tr>
           </tbody>
         </Table>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <div>
+              <div>
+                <div class="card">
+                  <form role="form">
+                    <div class="form-group">
+                      <label for="cardNumber">
+                        <h6 style={{ color: "#fff" }}>Food name</h6>
+                      </label>
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          name="cardNumber"
+                          placeholder="Card name"
+                          class="form-control "
+                          required
+                        />
+                      </div>
+                    </div>
+                    <p></p>
+                    <div>
+                      <button type="button" class="button">
+                        Add
+                      </button>
+                      <p></p>
+                      <button type="button" class="button">
+                        Delete
+                      </button>
+                    </div>
+                    <div class="row">
+                      <div class="form-group">
+                        <label for="cardNumber">
+                          <h6 style={{ color: "#fff" }}>Enter new price</h6>
+                        </label>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            name="cardNumber"
+                            placeholder="Balance"
+                            class="form-control "
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <p></p>
+                    <div>
+                      <button type="button" class="button">
+                        Change the price
+                      </button>
+                    </div>
+                    <div></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </Popup>
       </div>
     </div>
+    
   );
 }
 export default RestaurantOwnerRestaurantList;

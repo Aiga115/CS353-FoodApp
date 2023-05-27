@@ -10,32 +10,6 @@ import "reactjs-popup/dist/index.css";
 import RestaurantOwnerRestaurantList from "./RestaurantOwnerRestaurantList"
 
 const RestaurantOwnerProfilePage = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setLoading(true);
-    const unsub = onSnapshot(
-      collection(db, "events"),
-      (snapshot) => {
-        const list = [];
-        snapshot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
-        });
-        setEvents(list);
-        setLoading(false);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    return () => {
-      unsub();
-    };
-  }, []);
-  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <div
       style={{
@@ -64,14 +38,6 @@ const RestaurantOwnerProfilePage = () => {
             <b>Phone number: 1234567890</b>
           </p>
           <button className="profile-btn">Edit</button>
-          <p>
-            <button
-              className="profile-btn"
-              onClick={() => setButtonPopup(true)}
-            >
-              Register a new credit card
-            </button>
-          </p>
         </section>
       </section>
       <RestaurantOwnerRestaurantList />
