@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { collection, onSnapshot } from "firebase/firestore";
 import "./Profile.css";
 import { motion } from "framer-motion";
-import image from "../images/profile.jpg";
+import image from "../assets/profile.jpg";
 import Table from "react-bootstrap/Table";
 import Popup from "../PaymentForm";
 import PastOrder from "../PastOrders";

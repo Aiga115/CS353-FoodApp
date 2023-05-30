@@ -1,7 +1,7 @@
 import React from "react";
 import "../FoodCont.css";
 import CardBox from "./CardBox";
-import food from "../images/restaurant.jpg";
+import food from "../../assets/restaurant.jpg";
 
 
 function List() {

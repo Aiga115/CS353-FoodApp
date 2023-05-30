@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Container/Container.css";
+import "../components/container.css";
 import TopSect from "./TopSect";
 import Table from 'react-bootstrap/Table';
 import { FaTrashAlt } from "react-icons/fa";

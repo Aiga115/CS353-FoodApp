@@ -1,19 +1,15 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import { FaFilter } from "react-icons/fa";
-import user from "./images/user.jpg";
 
 
 function TopSect() {
 
+  const user = 'Asli'
   return (
     <div className="top-section">
       <div className="user-info">
-        <div className="user-img">
-        </div>
-        <div>
-          <p className="user-name"><b>Welcome Asli!</b></p>
-        </div>
+        <p className="user-name">Welcome {user} 👋</p>
+
       </div>
     </div>
   );

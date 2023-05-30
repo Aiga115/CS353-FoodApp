@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../components/Container/Container.css";
+import "../../components/container.css";
 import TopSect from "../../components/TopSect";
 import Table from 'react-bootstrap/Table';
 import "reactjs-popup/dist/index.css";

@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Container/Container.css"
+import "../components/container.css"
 import List from "../components/Restaurant/List";
 
 function RestaurantsPage() {

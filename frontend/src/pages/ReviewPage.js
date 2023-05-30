@@ -13,7 +13,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Box from "@mui/material/Box";
-import im from "../components/images/food.jpg";
+import im from "../assets/food.jpg";
 import { useState } from 'react';
 
 

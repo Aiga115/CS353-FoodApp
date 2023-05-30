@@ -1,5 +1,5 @@
 import "./App.css";
-import Container from "./components/Container/Container";
+import Container from "./components/container";
 import Admin from "./components/Admin";
 import PaymentForm from "./components/PaymentForm";
 import Login from "./pages/LoginPage";
@@ -22,13 +22,13 @@ function App() {
             <Route path="/register" element={<Registration />} />
             <Route element={<SidebarLayout/>}>
               <Route path="/main" element={<Container />} />
-              <Route path="/CustomerProfilePage" element={<CustomerProfilePage />} />
+              <Route path="/customer-profile" element={<CustomerProfilePage />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/restaurants" element={<RestaurantsPage />} />
               <Route path="/pay" element={<PaymentForm></PaymentForm>}></Route>
               <Route path="/review" element={<ReviewPage />} />
-              <Route path="/RestaurantOwnerProfilePage" element={<RestaurantOwnerProfilePage />} />
-              <Route path="/DeliveryPersonPage" element={<DeliveryPersonPage />} />
+              <Route path="/restaurant-owner-profile" element={<RestaurantOwnerProfilePage />} />
+              <Route path="/delivery-person" element={<DeliveryPersonPage />} />
             </Route>
           </Routes>
         </Router>

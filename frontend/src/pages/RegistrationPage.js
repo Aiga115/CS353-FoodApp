@@ -11,7 +11,7 @@ import {
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
-import bg from '../components/images/bg.jpg';
+import bg from '../assets/bg.jpg';
 
 const ImBox = styled(Box)({
     width: '100%',

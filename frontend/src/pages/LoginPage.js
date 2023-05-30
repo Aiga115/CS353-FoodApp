@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //components
 import {
@@ -10,7 +11,7 @@ import {
 } from '@mui/material';
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import bg from '../components/images/bg.jpg';
+import bg from '../assets/bg.jpg';
 
 const ImBox = styled(Box)({
     width: '100%',
@@ -64,6 +65,11 @@ const LoginCard = styled(Card)({
 
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const submit = () => {
+        navigate('/main')
+    }
     return (
         <Box display="flex" width={1} justifyContent="space-between" alignItems="center">
             <LoginCard>
@@ -81,7 +87,7 @@ const Login = () => {
                 </Box>
                 <Button variant='contained' sx={{ background: '#a55233', marginTop: '30px', textTransform: 'none', width: '120px', '&:hover':{
                     backgroundColor: '#a55233'
-                }}}>Submit</Button>
+                }}} onClick={submit}>Submit</Button>
             </LoginCard>
             <ImBox />
         </Box>
