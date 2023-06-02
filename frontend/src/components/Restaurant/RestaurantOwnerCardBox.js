@@ -3,14 +3,47 @@ import { useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "reactjs-popup/dist/index.css";
-import Rating from '@mui/material/Rating';
 import EditRestaurantInfoPopup from "./EditRestaurantInfoPopup";
 import EditMenuPopup from "./EditMenuPopup";
 
-
-function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHours, district, minDeliveryCost, button}) {
+function RestaurantOwnerCardBox({ imgSrc, title}) {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [buttonPopup1, setButtonPopup1] = useState(false);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [cuisine, setCuisine] = useState('');
+  const [openningHours, setOpenningHours] = useState('');
+  const [district, setDistrict] = useState('');
+  const [minDeliveryCost, setMinDeliveryCost] = useState('');
+
+  const handleTextInputChange1 = event => {
+    setName(event.target.value);
+  };
+
+  const handleTextInputChange2 = event => {
+    setPhone(event.target.value);
+  };
+
+  const handleTextInputChange3 = event => {
+    setCuisine(event.target.value);
+  };
+
+  const handleTextInputChange4 = event => {
+    setOpenningHours(event.target.value);
+  };
+
+  const handleTextInputChange5 = event => {
+    setDistrict(event.target.value);
+  };
+
+  const handleTextInputChange6 = event => {
+    setMinDeliveryCost(event.target.value);
+  };
+
+  const handleChanges = event => {
+    //todo
+  }
+
   return (
     <div className="details">
       <img src={imgSrc} alt="" className="details-img" />
@@ -20,12 +53,17 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
       <div className="food-details">
         <div>
           <p>
-            {name}
+            Name: {name}
           </p>
         </div>
         <div>
           <p>
             Phone: {phone}
+          </p>
+        </div>
+        <div>
+          <p>
+            Cuisine: {cuisine}
           </p>
         </div>
         <div>
@@ -43,7 +81,6 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
             Minimum delivery cost: {minDeliveryCost}
           </p>
         </div>
-        <Rating value={rating} readOnly />
       </div>
       <div>
       <button type="button" class="btn btn-info" onClick={() => setButtonPopup(true)}>
@@ -63,8 +100,8 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                       <div class="input-group">
                         <input
                           type="text"
+                          onChange={handleTextInputChange1}
                           name="cardNumber"
-                          placeholder="Card name"
                           class="form-control "
                           required
                         />
@@ -78,8 +115,8 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                       <div class="input-group">
                         <input
                           type="text"
+                          onChange={handleTextInputChange2}
                           name="cardNumber"
-                          placeholder="Card name"
                           class="form-control "
                           required
                         />
@@ -92,8 +129,8 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                       <div class="input-group">
                         <input
                           type="text"
+                          onChange={handleTextInputChange3}
                           name="cardNumber"
-                          placeholder="Card name"
                           class="form-control "
                           required
                         />
@@ -107,7 +144,7 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                         <input
                           type="text"
                           name="cardNumber"
-                          placeholder="Card name"
+                          onChange={handleTextInputChange4}
                           class="form-control "
                           required
                         />
@@ -121,7 +158,21 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                         <input
                           type="text"
                           name="cardNumber"
-                          placeholder="Card name"
+                          onChange={handleTextInputChange5}
+                          class="form-control "
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="cardNumber">
+                        <h6 style={{ color: "#fff" }}>Min Delivery Cost: </h6>
+                      </label>
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          name="cardNumber"
+                          onChange={handleTextInputChange6}
                           class="form-control "
                           required
                         />
@@ -130,6 +181,9 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                   </form>
                 </div>
               </div>
+              <button onClick={handleChanges}>
+                Save changes
+              </button>
               <button type="button" class="btn btn-info" onClick={() => setButtonPopup1(true)}>
                 Edit menu
               </button>
@@ -148,7 +202,6 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                         <input
                           type="text"
                           name="cardNumber"
-                          placeholder="Card name"
                           class="form-control "
                           required
                         />
@@ -172,7 +225,6 @@ function RestaurantOwnerCardBox({ imgSrc, title, name, rating, phone, openningHo
                         <div class="input-group">
                           <input
                             type="text"
-                            name="cardNumber"
                             placeholder="Balance"
                             class="form-control "
                             required

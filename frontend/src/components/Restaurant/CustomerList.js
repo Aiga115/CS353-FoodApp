@@ -11,7 +11,7 @@ function CustomerList() {
         <div className="left-side">
           <div className="cards">
             <main>
-              <CustomerCardBox imgSrc={food} name={"Uygur Lezzetleri"} phone={"+90111111111"} openningHours = {"10.00"} rating={2} district = {"Çankaya"} minDeliveryCost = {"50 tl"}></CustomerCardBox>
+              <CustomerCardBox imgSrc={food} name={""} phone={""} openningHours = {""} rating={0} district = {""} minDeliveryCost = {""}></CustomerCardBox>
             </main>
           </div>
         </div>

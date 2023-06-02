@@ -2,7 +2,7 @@ import React from "react";
 import "../components/container.css"
 import List from "../components/Restaurant/CustomerList";
 
-function RestaurantsPage() {
+function CustomerRestaurantsPage() {
   return (
     <div className="container">
         <List/>
@@ -10,4 +10,4 @@ function RestaurantsPage() {
   );
 }
 
-export default RestaurantsPage;
+export default CustomerRestaurantsPage;

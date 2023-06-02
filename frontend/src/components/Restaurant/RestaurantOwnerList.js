@@ -1,18 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import "../FoodCont.css";
 import RestaurantOwnerCardBox from "./RestaurantOwnerCardBox";
 import food from "../../assets/restaurant.jpg";
 
 function RestaurantOwnerList() {
+
+  const [data, setData] = useState([{}])
+
+  const handleClick = () => {
+    setData([...data,{}])
+  }
+
   return (
     <>
+    <div>
+      <button onClick={handleClick}>add</button>
+    </div>
       <div className="foodcontainer" style={{ justifyContent: 'center' }}>
         <div className="left-side">
-          <div className="cards">
-            <main>
-              <RestaurantOwnerCardBox imgSrc={food} name={"Uygur Lezzetleri"} phone={"+90111111111"} openningHours = {"10.00"} rating={2} district = {"Çankaya"} minDeliveryCost = {"50 tl"}></RestaurantOwnerCardBox>
-            </main>
-          </div>
+        <div className="cards">
+        <main>
+        {
+          data.map(() =>
+            <RestaurantOwnerCardBox imgSrc={food}></RestaurantOwnerCardBox>
+          )
+        }
+        </main>
+         </div>
         </div>
       </div>
     </>

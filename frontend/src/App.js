@@ -1,6 +1,5 @@
 import "./App.css";
 import Container from "./components/container";
-import Admin from "./components/Admin";
 import PaymentForm from "./components/PaymentForm";
 import Login from "./pages/LoginPage";
 import Registration from "./pages/RegistrationPage";
@@ -9,6 +8,7 @@ import ReviewPage from "./pages/ReviewPage";
 import SidebarLayout from "./layouts/SidebarLayout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DeliveryPersonPage from "./pages/DeliveryPersonPage";
+import AdminPage from "./pages/AdminPage";
 import CustomerProfilePage from "./pages/CustomerProfilePage/CustomerProfilePage";
 import RestaurantOwnersRestaurantsPage from "./pages/RestaurantOwnersRestaurantsPage";
 
@@ -23,12 +23,12 @@ function App() {
             <Route element={<SidebarLayout/>}>
               <Route path="/main" element={<Container />} />
               <Route path="/customer-profile" element={<CustomerProfilePage />} />
-              <Route path="/admin" element={<Admin />} />
               <Route path="/customers-restaurants" element={<CustomersRestaurantsPage />} />
               <Route path="/restaurant-owner-restaurants" element={<RestaurantOwnersRestaurantsPage />} />
               <Route path="/pay" element={<PaymentForm></PaymentForm>}></Route>
               <Route path="/review" element={<ReviewPage />} />
               <Route path="/delivery-person" element={<DeliveryPersonPage />} />
+              <Route path="/admin-page" element={<AdminPage />} />
             </Route>
           </Routes>
         </Router>
