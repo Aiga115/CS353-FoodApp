@@ -6,7 +6,6 @@ import food from "../../assets/restaurant.jpg";
 function RestaurantOwnerList() {
 
   const [data, setData] = useState([{}])
-
   const handleClick = () => {
     setData([...data,{}])
   }
