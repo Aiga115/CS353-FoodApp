@@ -1,17 +1,17 @@
 import React from "react";
 import "../FoodCont.css";
-import CustomerCardBox from "./CustomerCardBox";
+import CardBox from "./CardBox";
 import food from "../../assets/restaurant.jpg";
 
 
-function CustomerList() {
+function List() {
   return (
     <>
       <div className="foodcontainer" style={{ justifyContent: 'center' }}>
         <div className="left-side">
           <div className="cards">
             <main>
-              <CustomerCardBox imgSrc={food} name={""} phone={""} openningHours = {""} rating={0} district = {""} minDeliveryCost = {""}></CustomerCardBox>
+              <CardBox imgSrc={food} name={""} phone={""} openningHours = {""} rating={0} district = {""} minDeliveryCost = {""} cuisine={""} numberOfOrders={""}></CardBox>
             </main>
           </div>
         </div>
@@ -20,4 +20,4 @@ function CustomerList() {
   );
 }
 
-export default CustomerList;
+export default List;

@@ -20,14 +20,14 @@ function SideBar() {
     <header>
       
       <ul className="top-menu">
-        <Link to="/"><Icon icon={<MdDashboard title="Order"/>} /></Link>
+        <Link to="/main"><Icon icon={<MdDashboard title="Order"/>} /></Link>
         <Link to="/profile"><Icon icon={<FaUser title="Your Profile"/>} /></Link>
-        <Link to="/chat"><Icon icon={<IoChatbubbleEllipsesSharp title="Chat with sales rep"/>} /></Link>
-        <Link to="/comingsoon"><Icon icon={<IoRestaurant title="Book a seat"/>} /></Link>
+        <Link to="/review"><Icon icon={<IoChatbubbleEllipsesSharp title="Chat with sales rep"/>} /></Link>
+        <Link to="/restaurants"><Icon icon={<IoRestaurant title="Book a seat"/>} /></Link>
       </ul>
 
       <ul className="bottom-menu">
-        <Icon icon={<FaSignOutAlt />} />
+        <Link to="/"><Icon icon={<FaSignOutAlt />} /></Link>
       </ul>
       
     </header>

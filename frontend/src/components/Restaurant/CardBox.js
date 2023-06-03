@@ -6,7 +6,7 @@ import "reactjs-popup/dist/index.css";
 import EditRestaurantInfoPopup from "./EditRestaurantInfoPopup";
 import EditMenuPopup from "./EditMenuPopup";
 
-function RestaurantOwnerCardBox({ imgSrc, title}) {
+function RestaurantOwnerCardBox(props) {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [buttonPopup1, setButtonPopup1] = useState(false);
   const [name, setName] = useState('');
@@ -46,39 +46,39 @@ function RestaurantOwnerCardBox({ imgSrc, title}) {
 
   return (
     <div className="details">
-      <img src={imgSrc} alt="" className="details-img" />
+      <img src={props?.imgSrc} alt="" className="details-img" />
       <div className="food-name">
-        <h2>{title}</h2>
+        <h2>{props?.title}</h2>
       </div>
       <div className="food-details">
         <div>
           <p>
-            Name: {name}
+            Name: {props?.name}
           </p>
         </div>
         <div>
           <p>
-            Phone: {phone}
+            Phone: {props?.phone}
           </p>
         </div>
         <div>
           <p>
-            Cuisine: {cuisine}
+            Cuisine: {props?.cuisine}
           </p>
         </div>
         <div>
           <p>
-            Openning Hour: {openningHours}
+            Openning Hour: {props?.openningHours}
           </p>
         </div>
         <div>
           <p>
-            District: {district}
+            District: {props?.district}
           </p>
         </div>
         <div>
           <p>
-            Minimum delivery cost: {minDeliveryCost}
+            Minimum delivery cost: {props?.minDeliveryCost}
           </p>
         </div>
       </div>
