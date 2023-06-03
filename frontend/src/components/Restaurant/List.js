@@ -4,7 +4,7 @@ import CardBox from "./CardBox";
 import food from "../../assets/restaurant.jpg";
 
 
-function List() {
+function List({ user }) {
   return (
     <>
       <div className="foodcontainer" style={{ justifyContent: 'center' }}>

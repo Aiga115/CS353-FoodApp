@@ -1,8 +1,7 @@
 import React from "react";
-import "./container.css";
-import TopSect from "./TopSect"
-import FoodCont from "./FoodCont";
-
+import "./index.css";
+import TopSect from "../../components/TopSect";
+import FoodCont from "../../components/FoodCont";
 
 function Container() {
   return (

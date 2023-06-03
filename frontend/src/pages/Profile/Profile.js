@@ -16,7 +16,8 @@ const Home = () => {
         fullname: "Asli Karaman",
         email: "asli.karaman@ug.bilkent.edu.tr",
         phoneNumber: "1234567890",
-        addresses: ["Bilkent University Dormitories", "Bilkent University"]
+        addresses: ["Bilkent University Dormitories", "Bilkent University"],
+        isAdmin: false
     }
 
     useEffect(() => {
@@ -75,7 +76,9 @@ const Home = () => {
                             </p>
                         })
                     }
-                    <button className="profile-btn">Edit</button>
+                    {
+                        user.isAdmin && <button className="profile-btn">Edit</button>
+                    }
                     <p>
                         <button
                             className="profile-btn"
