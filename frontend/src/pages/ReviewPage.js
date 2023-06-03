@@ -9,6 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import Rating from '@mui/material/Rating';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Box from "@mui/material/Box";
@@ -22,6 +23,7 @@ const Reviews = () => {
     const [updated, setUpdated] = useState(message);
     const [image, setImage] = useState();
     const [updatedImage, setUpdatedImage] = useState(image);
+    const [ratingValue, setRatingValue] = useState(0);
 
     function handleImageInput(e) {
         setImage(URL.createObjectURL(e.target.files[0]));
@@ -48,7 +50,7 @@ const Reviews = () => {
     return (
         <div className='container'>
             <Box width={1} m={2} sx={{ display: 'flex', gap: '30px' }}>
-                <Card sx={{ width: 345, maxHeight: 400 }}>
+                <Card sx={{ width: 345, maxHeight: 600 }}>
                     <CardHeader
                         avatar={
                             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -65,6 +67,15 @@ const Reviews = () => {
                                 <input type="file" onChange={handleImageInput} style={{ display: "block", margin: "auto" }} />
                             </label>
                         </div>
+                    </div>
+                    <div style={{ display:'flex', flexDirection:'column', alignItems: 'center' }}>
+                        <Typography sx={{ color: '#000', textAlign: 'center', marginBottom: '20px' }}>Do you want to include rating by giving stars?</Typography>
+                        <Rating
+                            value={ratingValue}
+                            onChange={(event, newValue) => {
+                                setRatingValue(newValue);
+                            }} 
+                        />
                     </div>
                     <div style={{ height: 150 }}>
                         <Typography sx={{ color: '#000', textAlign: 'center', marginBottom: '5px' }}>Do you want to include comments about the order?</Typography>
