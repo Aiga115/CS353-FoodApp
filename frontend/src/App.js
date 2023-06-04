@@ -8,7 +8,7 @@ import Login from "./pages/LoginPage";
 import Registration from "./pages/RegistrationPage";
 import ReviewPage from "./pages/ReviewPage";
 import SidebarLayout from "./layouts/SidebarLayout";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import Box from '@mui/material/Box';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile/Profile";
@@ -20,7 +20,7 @@ export const stateContext = createContext();
 function App() {
   const [user, setUser] = useState();
   const [foodlist, setFoodlist] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const token = Cookies.get("Food");
 
   const getUser = async () => {
@@ -43,7 +43,6 @@ function App() {
       }
     );
     setFoodlist(currFoodList);
-    setIsLoading(false)
   };
   useEffect(() => {
     getUser();
