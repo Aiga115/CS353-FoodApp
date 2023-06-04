@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import axios from 'axios';
 import "./FoodCont.css";
 import FoodBox from "./FoodBox";
 import imgFood from "../assets/food.jpg";
@@ -7,9 +8,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-
+import { useStateContext } from "../App";
 
 function FoodCont() {
+  const {foodList} = useStateContext();
   return (
     <>
       <div className="foodcontainer">
@@ -65,7 +67,7 @@ function FoodCont() {
 
             <main>
               {
-                foods.map((food) => {
+                foodList?.map((food) => {
                   return <FoodBox key={food.id} imgSrc={imgFood} title={food.name} price={food.price} />
                 })
               }

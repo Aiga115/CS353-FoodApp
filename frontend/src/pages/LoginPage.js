@@ -96,11 +96,11 @@ const Login = () => {
             }
           ).then((response) => {
             response.json().then((parsedJson) => {
-              console.log("a: ", parsedJson);
               if (response.status === 200) {
                 localStorage.setItem("role", parsedJson.authorities[0]);
                 Cookies.set('Food',parsedJson.token)
-                
+                navigate('/main')
+
               }
               else if (response.status === 401) {
                 window.confirm("Invalid credentials.");
