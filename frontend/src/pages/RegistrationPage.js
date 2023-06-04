@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import axios from 'axios';
 //components
 import {
     TextField,
@@ -33,9 +33,9 @@ const RegCard = styled(Card)({
     boxShadow: 'none',
     backgroundColor: '#402a23',
     color: '#e0e0e0',
-    '& a':{
+    '& a': {
         textDecoration: 'none',
-        '&:visited':{
+        '&:visited': {
             textDecoration: 'none',
         }
     },
@@ -44,13 +44,13 @@ const RegCard = styled(Card)({
             fontSize: '14px',
             color: '#c1c0b9'
         },
-        '& .MuiOutlinedInput-root':{
+        '& .MuiOutlinedInput-root': {
             color: '#e0e0e0',
             '&:hover': {
                 borderColor: '#c1c0b9'
             }
         },
-        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':{
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#c1c0b9',
         },
         '& fieldset': {
@@ -64,26 +64,77 @@ const RegCard = styled(Card)({
 });
 
 const Registration = () => {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [fullname, setFullname] = useState('')
+    const [username, setUsername] = useState('')
+    const [number, setNumber] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post("https://example.com/registration", { email, password, username, fullname, number })
+            .then(response => {
+                console.log(response)
+            })
+    }
     return (
         <Box display="flex" width={1} justifyContent="space-between" alignItems="center">
             <RegCard>
-                <Box textAlign="center">
-                    <Typography variant="h6" sx={{fontWeight: 600, marginBottom: '25px'}}>Register your account</Typography>
-                </Box>
-                <TextField label="Email" size='small'/>
-                <TextField label="Password" size='small' />
-                <TextField label="Fullname" size='small'/>
-                <TextField label="Username" size='small'/>
-                <TextField label="Number" size='small'/>
-                <Box m={1} display="flex" gap={0.5} mt={2}>
-                    <Typography sx={{ fontSize: '14px' }}>Already have an account?</Typography>
-                    <Link to="/">
-                        <Typography color="primary" sx={{ fontSize: '14px', color: '#f96d00' }}>Sign In</Typography>
-                    </Link>
-                </Box>
-                <Button variant='contained' sx={{ background: '#a55233', marginTop: '30px', textTransform: 'none', width: '120px', '&:hover':{
-                    backgroundColor: '#a55233'
-                }}}>Submit</Button>
+                <form action="" id="registration" method="post" onSubmit={handleSubmit} style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '15px'
+                }}>
+                    <Box textAlign="center">
+                        <Typography variant="h6" sx={{ fontWeight: 600, marginBottom: '25px' }}>Register your account</Typography>
+                    </Box>
+                    <TextField
+                        label="Email"
+                        size='small'
+                        type='email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    <TextField
+                        label="Password"
+                        size='small'
+                        type='password'
+                        value={password}
+                        onChange={e => setPassword(e.target.value)} />
+                    <TextField
+                        label="Fullname"
+                        size='small'
+                        type='text'
+                        value={fullname}
+                        onChange={e => setFullname(e.target.value)}
+                    />
+                    <TextField
+                        label="Username"
+                        size='small'
+                        type='text'
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                    />
+                    <TextField
+                        label="Number"
+                        size='small'
+                        type='text'
+                        value={number}
+                        onChange={e => setNumber(e.target.value)}
+                    />
+                    <Box m={1} display="flex" gap={0.5} mt={2}>
+                        <Typography sx={{ fontSize: '14px' }}>Already have an account?</Typography>
+                        <Link to="/">
+                            <Typography color="primary" sx={{ fontSize: '14px', color: '#f96d00' }}>Sign In</Typography>
+                        </Link>
+                    </Box>
+                    <Button variant='contained' sx={{
+                        background: '#a55233', marginTop: '30px', textTransform: 'none', width: '120px', '&:hover': {
+                            backgroundColor: '#a55233'
+                        }
+                    }} type='submit' value='registration'>Submit</Button>
+                </form>
             </RegCard>
             <ImBox />
         </Box>
