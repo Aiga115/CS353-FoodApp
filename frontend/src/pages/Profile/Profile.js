@@ -3,12 +3,18 @@ import { db } from "../../components/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 import "./Profile.css";
 import image from "../../assets/profile.jpg";
-import Popup from "../../components/NewCardRegistrationPopup";
+import Popup from "../../components/NewCardRegistrationDialog";
 import "reactjs-popup/dist/index.css";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import FormLabel from '@mui/material/FormLabel';
+import NewCardRegistrationDialog from "../../components/NewCardRegistrationDialog";
 
-const Home = () => {
+const Home = (props) => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const [open, setOpen] = useState(false);
 
     const user = {
         name: "Asli",
@@ -55,7 +61,7 @@ const Home = () => {
                 <img src={image} className="profile-img" alt="user" />
                 <section className="profile-details">
                     <h1 className="profile-name">
-                        <b>{user.name}</b>
+                        <FormLabel>{user.name}</FormLabel>
                     </h1>
                     <p className="profile-loc">
                         <b>Username: {user.username}</b>
@@ -79,61 +85,11 @@ const Home = () => {
                     {
                         user.isAdmin && <button className="profile-btn">Edit</button>
                     }
+                    <p></p>
                     <p>
-                        <button
-                            className="profile-btn"
-                            onClick={() => setButtonPopup(true)}
-                        >
-                            Register a new credit card
-                        </button>
+                        <Button variant='contained' onClick={() => setOpen(true)}>Register a new credit card</Button>
                     </p>
-                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                        <div>
-                            <div>
-                                <div class="card">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label for="cardNumber">
-                                                <h6 style={{ color: "#fff" }}>Card name</h6>
-                                            </label>
-                                            <div class="input-group">
-                                                <input
-                                                    type="text"
-                                                    name="cardNumber"
-                                                    placeholder="Card name"
-                                                    class="form-control "
-                                                    required
-                                                />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <label for="cardNumber">
-                                                    <h6 style={{ color: "#fff" }}>Balance</h6>
-                                                </label>
-                                                <div class="input-group">
-                                                    <input
-                                                        type="text"
-                                                        name="cardNumber"
-                                                        placeholder="Balance"
-                                                        class="form-control "
-                                                        required
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p></p>
-                                        <div>
-                                            <button type="button" class="button">
-                                                Add new credit card
-                                            </button>
-                                        </div>
-                                        <div></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </Popup>
+                    <NewCardRegistrationDialog open={open} setOpen={setOpen} info={props}></NewCardRegistrationDialog>
                 </section>
             </section>
         </div>
