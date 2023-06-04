@@ -3,7 +3,6 @@ import "./FoodCont.css";
 import FoodBox from "./FoodBox";
 import imgFood from "../assets/food.jpg";
 import PaymentSect from "./PaymentSect";
-
 import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
