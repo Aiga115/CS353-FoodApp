@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 //components
 import { TextField, Button, Box, Card, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -66,6 +67,7 @@ const RegCard = styled(Card)({
 });
 
 const Registration = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
@@ -89,7 +91,9 @@ const Registration = () => {
         role
       })
       .then((response) => {
-        console.log(response);
+        if(response){
+          navigate('/')
+        }
       });
   };
   return (
