@@ -4,6 +4,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./PaymentForm.css";
 import "reactjs-popup/dist/index.css";
 import PaymentDialog from "./PaymentDialog";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 function PaymentSect(props) {
@@ -39,16 +41,13 @@ function PaymentSect(props) {
 
             <div className="pay">
               <span>
-                <button onClick={removeElement}>
-                  <FaTrashAlt />
-                </button>
+                <Button variant="contained" onClick={removeElement}><FaTrashAlt /></Button>
               </span>
             </div>
               </div>
             
           </article>
           )}
-
           <figure>
             <div>
               <p>Total Price: </p>
@@ -59,9 +58,7 @@ function PaymentSect(props) {
           </figure>
 
           <div>
-            <button className="button" variant='contained' onClick={() => setOpen(true)}>
-              Pay
-            </button>
+            <Button variant="contained">Pay</Button>
           </div>
          <PaymentDialog open={open} setOpen={setOpen} info={props}></PaymentDialog>
         </div>

@@ -3,18 +3,19 @@ import { db } from "../../components/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 import "./Profile.css";
 import image from "../../assets/profile.jpg";
-import Popup from "../../components/NewCardRegistrationDialog";
 import "reactjs-popup/dist/index.css";
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import FormLabel from '@mui/material/FormLabel';
 import NewCardRegistrationDialog from "../../components/NewCardRegistrationDialog";
+import EditDialog from "./EditDialog";
 
-const Home = (props) => {
+
+const Profile = (props) => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const [open, setOpen] = useState(false);
+
+    const [openEdit, setOpenEdit] = useState(false);
 
     const user = {
         name: "Asli",
@@ -47,7 +48,7 @@ const Home = (props) => {
             unsub();
         };
     }, []);
-    const [buttonPopup, setButtonPopup] = useState(false);
+
     return (
         <div
             style={{
@@ -60,35 +61,36 @@ const Home = (props) => {
             <section className="profile-container">
                 <img src={image} className="profile-img" alt="user" />
                 <section className="profile-details">
-                    <h1 className="profile-name">
-                        <FormLabel>{user.name}</FormLabel>
+                    <h1 className="profile-name" style={{ color: 'white' }}>
+                        {user.name}
                     </h1>
-                    <p className="profile-loc">
+                    <p className="profile-loc" style={{ color: 'white' }}>
                         <b>Username: {user.username}</b>
                     </p>
-                    <p className="profile-loc">
+                    <p className="profile-loc" style={{ color: 'white' }}>
                         <b>Full name: {user.fullname}</b>
                     </p>
-                    <p className="profile-loc">
+                    <p className="profile-loc" style={{ color: 'white' }}>
                         <b>Email address: {user.email}</b>
                     </p>
-                    <p className="profile-loc">
+                    <p className="profile-loc" style={{ color: 'white' }}>
                         <b>Phone number: {user.phoneNumber}</b>
                     </p>
                     {
                         user.addresses.map((address, index) => {
-                            return <p className="profile-loc" key={index}>
+                            return <p className="profile-loc" key={index} style={{ color: 'white' }}>
                                 <b>Registered Address {index+1}: {address}</b>
                             </p>
                         })
                     }
-                    {
-                        user.isAdmin && <button className="profile-btn">Edit</button>
-                    }
-                    <p></p>
-                    <p>
+                    <div style={{padding: '10px 7px 10px 7px'}}>
+                        <Button variant='contained' onClick={() => setOpenEdit(true)}>Edit</Button>
+                    </div>
+                    <div style={{padding: '10px 7px 10px 7px'}}>
                         <Button variant='contained' onClick={() => setOpen(true)}>Register a new credit card</Button>
-                    </p>
+                    
+                    </div>
+                    <EditDialog open={openEdit} setOpen={setOpenEdit} info={props}></EditDialog>
                     <NewCardRegistrationDialog open={open} setOpen={setOpen} info={props}></NewCardRegistrationDialog>
                 </section>
             </section>
@@ -96,4 +98,4 @@ const Home = (props) => {
     );
 };
 
-export default Home;
+export default Profile;
