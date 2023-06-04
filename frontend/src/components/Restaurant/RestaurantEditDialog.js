@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import FormLabel from '@mui/material/FormLabel';
 
 export default function RestaurantEditDialog({ open, setOpen, info }) {
 
@@ -20,42 +21,47 @@ export default function RestaurantEditDialog({ open, setOpen, info }) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Restaurant's information</DialogTitle>
         <DialogContent>
+          <FormLabel>Restaurant name: </FormLabel>
           <TextField
             autoFocus
             margin="dense"
-            value={info.name}
+            value=""
             type="text"
             fullWidth
             variant="standard"
           />
+          <FormLabel>Cuisine: </FormLabel>
           <TextField
             autoFocus
             margin="dense"
-            value={info.cuisine}
+            value=""
             type="text"
             fullWidth
             variant="standard"
           />
+          <FormLabel>Phone number: </FormLabel>
           <TextField
             autoFocus
             margin="dense"
-            value={info.phone}
+            value=""
             type="text"
             fullWidth
             variant="standard"
           />
+          <FormLabel>Distirict: </FormLabel>
           <TextField
             autoFocus
             margin="dense"
-            value={info.district}
+            value=""
             type="text"
             fullWidth
             variant="standard"
           />
+          <FormLabel>Openning hours: </FormLabel>
           <TextField
             autoFocus
             margin="dense"
-            value={info.openingHours}
+            value=""
             type="text"
             fullWidth
             variant="standard"

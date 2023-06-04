@@ -45,6 +45,8 @@ export default function RestaurantMenuEditDialog({ open, setOpen, menu }) {
                                     fullWidth
                                     variant="standard"
                                 />
+                                <Button variant='contained' sx={{ marginTop: '10px'}}>Delete</Button>
+
                             </Stack>
                         })
                     }

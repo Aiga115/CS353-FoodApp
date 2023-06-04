@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 function PaymentSect(props) {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [openPayment, setOpenPayment] = useState(false);
+
   const removeElement = () => {
     setVisible((prev) => !prev);
   };
@@ -58,7 +60,7 @@ function PaymentSect(props) {
           </figure>
 
           <div>
-            <Button variant="contained">Pay</Button>
+            <Button variant="contained" onClick={() => setOpen(true)}>Pay</Button>
           </div>
          <PaymentDialog open={open} setOpen={setOpen} info={props}></PaymentDialog>
         </div>

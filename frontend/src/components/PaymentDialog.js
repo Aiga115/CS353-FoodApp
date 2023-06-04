@@ -66,9 +66,20 @@ export default function PaymentDialog({ open, setOpen, info }) {
             variant="standard"
         />
         </div>
+        <div>
+        <FormLabel>Notes: </FormLabel>
+        <TextField
+            autoFocus
+            margin="dense"
+            value={info.name}
+            type="text"
+            fullWidth
+            variant="standard"
+        />
         <DialogActions>
           <form onSubmit={handleSubmit2}>
           <FormControl sx={{ m: 3 }} error={error} variant="standard">
+        <div style={{textAlign: 'left'}}>
         <FormLabel id="registered-card-1">Registered cards</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
@@ -79,9 +90,12 @@ export default function PaymentDialog({ open, setOpen, info }) {
           <FormControlLabel value="best" control={<Radio />} label="Registered card 1" />
           <FormControlLabel value="worst" control={<Radio />} label="Registered card 2" />
         </RadioGroup>
+        </div>
       </FormControl>
           </form>
         </DialogActions>
+        </div>
+        
         </DialogContent>
         <DialogActions>
           <Button onClick={handleSubmit}>Pay</Button>

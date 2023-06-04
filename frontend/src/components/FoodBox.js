@@ -35,7 +35,6 @@ function FoodBox({ imgSrc, title, price }) {
           <p>
             Price: {price}
           </p>
-          <p>Available</p>
         </div>
       </div>
 
