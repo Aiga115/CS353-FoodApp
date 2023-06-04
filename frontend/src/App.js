@@ -44,9 +44,12 @@ function App() {
     );
     setFoodlist(currFoodList);
   };
+
+
   useEffect(() => {
     getUser();
     getFoodList();
+
   }, []);
 
   return (

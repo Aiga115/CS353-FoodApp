@@ -1,10 +1,36 @@
 import React from "react";
+import axios from "axios";
 import "../FoodCont.css";
+import Cookies from "js-cookie";
 import food from "../../assets/restaurant.jpg";
 import RestaurantCard from "./RestaurantCard";
+import { useStateContext } from "../../App";
 
+function List() {
+  const { user } = useStateContext()
+  const isRestaurantOwner = user?.data?.role;
+  const [restaurantList, setRestaurantList] = React.useState();
+  const token = Cookies.get("Food");
 
-function List({ user }) {
+  //for restaurant owner only 
+  const getRestaurantList = async () => {
+    const currRestList = await axios.get(
+      "http://localhost:8080/restaurant-owner/restaurants",
+      {
+        headers: {
+          Authorization: token,
+        },
+        withCredentials: true,
+      }
+    );
+    setRestaurantList(currRestList);
+  }
+
+  React.useEffect(() => {
+    getRestaurantList();
+  }, []);
+
+  console.log("rest list: ", restaurantList)
   return (
     <>
       <div className="foodcontainer" style={{ justifyContent: 'center' }}>
@@ -44,7 +70,7 @@ export default List;
 
 const restaurants = [
   {
-    id:1,
+    id: 1,
     imgSrc: food,
     name: 'Bilka',
     phone: '90-56-56',
@@ -56,27 +82,27 @@ const restaurants = [
     minDeliveryCost: '',
     numberOfOrders: 12,
     isAdmin: false,
-    isRestaurantOwner: true, 
+    isRestaurantOwner: true,
     menu: [
       {
         id: 1,
         name: "kebab",
-        price: 200, 
+        price: 200,
       },
       {
-        id:2, 
-        name: 'gozleme', 
+        id: 2,
+        name: 'gozleme',
         price: 100
-      }, 
+      },
       {
-        id:3, 
-        name: 'durum', 
+        id: 3,
+        name: 'durum',
         price: 120
       }
     ]
   },
   {
-    id:2,
+    id: 2,
     imgSrc: food,
     name: 'Koreli',
     phone: '08-59-56',
@@ -88,16 +114,16 @@ const restaurants = [
     minDeliveryCost: '',
     numberOfOrders: 100,
     isAdmin: false,
-    isRestaurantOwner: true, 
+    isRestaurantOwner: true,
     menu: [
       {
-        id:4,
-        name: 'teokbokki', 
-        price: 120 
+        id: 4,
+        name: 'teokbokki',
+        price: 120
       },
       {
-        id: 5, 
-        name: 'ramen', 
+        id: 5,
+        name: 'ramen',
         price: 100
       }
     ]
