@@ -100,6 +100,7 @@ const Login = () => {
               if (response.status === 200) {
                 localStorage.setItem("role", parsedJson.authorities[0]);
                 Cookies.set('Food',parsedJson.token)
+                
               }
               else if (response.status === 401) {
                 window.confirm("Invalid credentials.");
@@ -107,6 +108,7 @@ const Login = () => {
               console.log("COOKIE ===>", response.headers['Set-Cookie']);
             });
           });
+
     }
     return (
         <Box display="flex" width={1} justifyContent="space-between" alignItems="center">

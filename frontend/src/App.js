@@ -1,5 +1,6 @@
 import "./App.css";
 import axios from "axios"
+import Cookies from "js-cookie";
 import { useState, useEffect, createContext, useContext } from "react";
 import Container from "./pages/Container";
 import PaymentForm from "./components/PaymentForm";
@@ -15,8 +16,14 @@ function App() {
   const [user, setUser] = useState();
   // const user = localStorage.getItem('currUser')
   // console.log("user: ", user)
+  const token = Cookies.get('Food')
+  console.log('token: ', token)
   const getUser = async () =>{
-    const {currUser} = await axios.get('http://localhost:8080/login/current')
+    const {currUser} = await axios.get('http://localhost:8080/login/current/',{
+      headers:{
+        'Authorization': 'Food eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzMUBnbWFpbC5jb20iLCJpYXQiOjE2ODU5MTIxOTEsImV4cCI6MTY4NTk5ODU5MX0.XTqbvn-7XfCoNV9wxlr3mLn982k9WCw-lN_i7X1vlo12jMsH-bOnSPfrts6BPRlP7808HSzncNgPmtNrTC_jxQ'
+      }
+    })
     setUser(currUser);
     console.log("user: ", currUser)
   }
