@@ -64,17 +64,16 @@ function FoodCont() {
             </Box>
 
             <main>
-              <FoodBox imgSrc={imgFood} title={"All 1"} price={"$20"} />
-              <FoodBox imgSrc={imgFood} title={"All 2"} price={"$10"} />
-              <FoodBox imgSrc={imgFood} title={"All 3"} price={"$5"} />
-              <FoodBox imgSrc={imgFood} title={"All 4"} price={"$7"} />
-              <FoodBox imgSrc={imgFood} title={"All 5"} price={"$10"} />
-              <FoodBox imgSrc={imgFood} title={"All 6"} price={"$15"} />
+              {
+                foods.map((food) => {
+                  return <FoodBox key={food.id} imgSrc={imgFood} title={food.name} price={food.price} />
+                })
+              }
             </main>
           </div>
         </div>
         <div className="right-side">
-          <PaymentSect />
+          <PaymentSect data={foods} />
         </div>
       </div>
     </>
@@ -102,3 +101,26 @@ const foodOptions = [
   { title: 'Meat, sausage and fish' },
   { title: 'Others' },
 ];
+
+const foods = [
+  {
+    id:1,
+    name: 'kebab', 
+    price: 100, 
+  },
+  {
+    id:2,
+    name: 'durum', 
+    price: 120, 
+  },
+  {
+    id:3, 
+    name: 'gozleme', 
+    price: 90
+  },
+  {
+    id:4, 
+    name: 'simit', 
+    price: 10
+  }
+]
