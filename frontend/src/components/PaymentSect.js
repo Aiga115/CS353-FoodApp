@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { FaPencilAlt } from "react-icons/fa";
+import React, {useState} from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
 import "./PaymentForm.css";
-import Popup from "./Payment";
 import "reactjs-popup/dist/index.css";
+import PaymentDialog from "./PaymentDialog";
 
-function PaymentSect({ data }) {
+
+function PaymentSect(props) {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [visible, setVisible] = useState(true);
   const removeElement = () => {
     setVisible((prev) => !prev);
   };
-  console.log()
-  const prices = data.map((item)=>item.price)
-  const totalPrice = prices.reduce((sum = 0, price)=>sum+price);
+
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <div className="payment">
@@ -25,32 +25,28 @@ function PaymentSect({ data }) {
         </div>
 
         <div className="price">
-          {visible && (
-            <article>
-              {
-                data.map((item) => {
-                  return <div key={item.id}>
-                    <div className="pay">
-                      <div>
-                        <b>Food: {item.name}</b>
-                        <p>{item.price}tl</p>
-                      </div>
-                      <p>{}</p>
-                      <p>{}</p>
-                    </div>
+        {visible && (
+          <article>
+              <div>
+                <div className="pay">
+              <div>
+                <b>Food1 </b>
+                <p>50 tl</p>
+              </div>
+              <p>5</p>
+              <p>250 tl</p>
+            </div>
 
-                    <div className="pay">
-                      <span>
-                        <button onClick={removeElement}>
-                          <FaTrashAlt />
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                })
-              }
-
-            </article>
+            <div className="pay">
+              <span>
+                <button onClick={removeElement}>
+                  <FaTrashAlt />
+                </button>
+              </span>
+            </div>
+              </div>
+            
+          </article>
           )}
 
           <figure>
@@ -58,66 +54,16 @@ function PaymentSect({ data }) {
               <p>Total Price: </p>
             </div>
             <div>
-              <p>{totalPrice}</p>
+              <p>475 tl</p>
             </div>
           </figure>
 
           <div>
-            <button className="button" onClick={() => setButtonPopup(true)}>
+            <button className="button" variant='contained' onClick={() => setOpen(true)}>
               Pay
             </button>
           </div>
-          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-            <div class="card">
-              <form role="form">
-                <label for="cardNumber">
-                  <h6>Total Price: 200 tl</h6>
-                </label>
-                <div class="form-group">
-                  <label for="cardNumber">
-                    <h6>Card Name</h6>
-                  </label>
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      name="cardNumber"
-                      placeholder="Card name"
-                      class="form-control "
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group">
-                    <label for="cardNumber">
-                      <h6>Balance</h6>
-                    </label>
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        name="cardNumber"
-                        placeholder="Balance"
-                        class="form-control "
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-                <p></p>
-                <div>
-                  <button type="button" class="button">
-                    Pay
-                  </button>
-                </div>
-                <p></p>
-                <div>
-                  <button type="button" class="button">
-                    Use registered credit card
-                  </button>
-                </div>
-              </form>
-            </div>
-          </Popup>
+         <PaymentDialog open={open} setOpen={setOpen} info={props}></PaymentDialog>
         </div>
       </div>
     </>
