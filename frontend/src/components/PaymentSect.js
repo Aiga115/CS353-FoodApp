@@ -8,6 +8,10 @@ import "reactjs-popup/dist/index.css";
 
 function PaymentSect() {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const removeElement = () => {
+    setVisible((prev) => !prev);
+  };
   return (
     <>
       <div className="payment">
@@ -18,8 +22,10 @@ function PaymentSect() {
         </div>
 
         <div className="price">
+        {visible && (
           <article>
-            <div className="pay">
+              <div>
+                <div className="pay">
               <div>
                 <b>Food1 </b>
                 <p>50 tl</p>
@@ -30,33 +36,15 @@ function PaymentSect() {
 
             <div className="pay">
               <span>
-                <FaPencilAlt />
-              </span>
-              <span>
-                <FaTrashAlt />
+                <button onClick={removeElement}>
+                  <FaTrashAlt />
+                </button>
               </span>
             </div>
-          </article>
-
-          <article>
-            <div className="pay">
-              <div>
-                <b>Food2</b>
-                <p>75 tl</p>
               </div>
-              <p>3</p>
-              <p>225 tl</p>
-            </div>
-
-            <div className="pay">
-              <span>
-                <FaPencilAlt />
-              </span>
-              <span>
-                <FaTrashAlt />
-              </span>
-            </div>
+            
           </article>
+          )}
 
           <figure>
             <div>
