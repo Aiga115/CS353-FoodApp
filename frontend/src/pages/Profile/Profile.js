@@ -7,6 +7,7 @@ import "reactjs-popup/dist/index.css";
 import Button from '@mui/material/Button';
 import NewCardRegistrationDialog from "../../components/NewCardRegistrationDialog";
 import EditDialog from "./EditDialog";
+import { useStateContext } from "../../App";
 
 
 const Profile = (props) => {
