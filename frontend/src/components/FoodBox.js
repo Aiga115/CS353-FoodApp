@@ -19,10 +19,6 @@ const notify = () => {
 
 function FoodBox({ imgSrc, title, price }) {
 
-  // const handleClick = async () => {
-  //   alert("Item has been added to cart");
-  // };
-
   return (
     <div className="details">
       <img src={imgSrc} alt="" className="details-img" />
@@ -33,16 +29,12 @@ function FoodBox({ imgSrc, title, price }) {
       <div className="food-details">
         <div>
           <p>
-            Price: {price}
+            Price: {price}TL
           </p>
-          <p>Available</p>
         </div>
       </div>
 
       <div className="cart-btn">
-        {/* <button onClick={handleClick} className="btn">
-          Add to cart
-        </button> */}
         <button onClick={notify} className="btn">Add to cart</button>
       </div>
       <ToastContainer />

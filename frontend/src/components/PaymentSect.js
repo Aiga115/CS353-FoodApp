@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,12 +6,15 @@ import "./PaymentForm.css";
 import Popup from "./Payment";
 import "reactjs-popup/dist/index.css";
 
-function PaymentSect() {
+function PaymentSect({ data }) {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [visible, setVisible] = useState(true);
   const removeElement = () => {
     setVisible((prev) => !prev);
   };
+  console.log()
+  const prices = data.map((item)=>item.price)
+  const totalPrice = prices.reduce((sum = 0, price)=>sum+price);
   return (
     <>
       <div className="payment">
@@ -22,28 +25,32 @@ function PaymentSect() {
         </div>
 
         <div className="price">
-        {visible && (
-          <article>
-              <div>
-                <div className="pay">
-              <div>
-                <b>Food1 </b>
-                <p>50 tl</p>
-              </div>
-              <p>5</p>
-              <p>250 tl</p>
-            </div>
+          {visible && (
+            <article>
+              {
+                data.map((item) => {
+                  return <div key={item.id}>
+                    <div className="pay">
+                      <div>
+                        <b>Food: {item.name}</b>
+                        <p>{item.price}tl</p>
+                      </div>
+                      <p>{}</p>
+                      <p>{}</p>
+                    </div>
 
-            <div className="pay">
-              <span>
-                <button onClick={removeElement}>
-                  <FaTrashAlt />
-                </button>
-              </span>
-            </div>
-              </div>
-            
-          </article>
+                    <div className="pay">
+                      <span>
+                        <button onClick={removeElement}>
+                          <FaTrashAlt />
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                })
+              }
+
+            </article>
           )}
 
           <figure>
@@ -51,7 +58,7 @@ function PaymentSect() {
               <p>Total Price: </p>
             </div>
             <div>
-              <p>475 tl</p>
+              <p>{totalPrice}</p>
             </div>
           </figure>
 
@@ -63,9 +70,9 @@ function PaymentSect() {
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <div class="card">
               <form role="form">
-              <label for="cardNumber">
-                    <h6>Total Price: 200 tl</h6>
-                  </label>
+                <label for="cardNumber">
+                  <h6>Total Price: 200 tl</h6>
+                </label>
                 <div class="form-group">
                   <label for="cardNumber">
                     <h6>Card Name</h6>
@@ -105,7 +112,7 @@ function PaymentSect() {
                 <p></p>
                 <div>
                   <button type="button" class="button">
-                  Use registered credit card
+                    Use registered credit card
                   </button>
                 </div>
               </form>
