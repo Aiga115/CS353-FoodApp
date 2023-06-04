@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios"
+import Cookies from 'js-cookie';
 
 //components
 import {
@@ -67,17 +68,45 @@ const LoginCard = styled(Card)({
 
 const Login = () => {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('')
+    const [mail, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.post("https://example.com/login", { email, password, username })
-            .then(response => {
-                console.log(response)
-            })
-        navigate('/main')
+        // axios.post("http://localhost:8080/login/", { mail, password, username }, {withCredentials: true})
+        //     .then(response => {
+        //         if(response){
+        //             localStorage.setItem('currUser', JSON.stringify(response.data.username))
+        //             navigate('/main')
+        //         }
+        //     }).catch((err)=>{
+        //         alert("Error: ", err)
+        //     })
+        fetch(
+            "http://localhost:8080/login/", //enter api address
+            {
+              method: "POST",
+              credentials: 'include',
+              body: JSON.stringify({mail, password, username}),
+              headers: {
+                "Content-Type": "application/json"
+              },
+            }
+          ).then((response) => {
+            response.json().then((parsedJson) => {
+              console.log("a: ", parsedJson);
+              if (response.status === 200) {
+                localStorage.setItem("role", parsedJson.authorities[0]);
+                Cookies.set('Food',parsedJson.token)
+              }
+              else if (response.status === 401) {
+                window.confirm("Invalid credentials.");
+              }
+              console.log("COOKIE ===>", response.headers['Set-Cookie']);
+            });
+          });
     }
     return (
         <Box display="flex" width={1} justifyContent="space-between" alignItems="center">
@@ -94,7 +123,7 @@ const Login = () => {
                         label="Email"
                         size='small'
                         type='email'
-                        value={email}
+                        value={mail}
                         onChange={e => setEmail(e.target.value)}
                     />
                     <TextField

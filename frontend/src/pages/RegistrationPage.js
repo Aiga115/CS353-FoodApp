@@ -73,7 +73,7 @@ const Registration = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://example.com/registration", { email, password, username, fullname, number })
+        axios.post("http://localhost:8080/register", { email, password, username, fullname, number })
             .then(response => {
                 console.log(response)
             })

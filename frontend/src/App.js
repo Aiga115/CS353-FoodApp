@@ -1,4 +1,6 @@
 import "./App.css";
+import axios from "axios"
+import { useState, useEffect, createContext, useContext } from "react";
 import Container from "./pages/Container";
 import PaymentForm from "./components/PaymentForm";
 import Login from "./pages/LoginPage";
@@ -10,6 +12,17 @@ import Profile from "./pages/Profile/Profile"
 import Restaurants from "./pages/Restaurants";
 
 function App() {
+  const [user, setUser] = useState();
+  // const user = localStorage.getItem('currUser')
+  // console.log("user: ", user)
+  const getUser = async () =>{
+    const {currUser} = await axios.get('http://localhost:8080/login/current')
+    setUser(currUser);
+    console.log("user: ", currUser)
+  }
+  useEffect(()=>{
+    getUser()
+  },[])
   return (
     <>
       <div className="App">
