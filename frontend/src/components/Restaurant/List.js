@@ -52,9 +52,6 @@ function List() {
                     minDeliveryCost={restaurant.minDeliveryCost}
                     cuisine={restaurant.cuisine}
                     numberOfOrders={restaurant.numberOfOrders}
-                    isAdmin={restaurant.isAdmin}
-                    isRestaurantOwner={restaurant.isRestaurantOwner}
-                    menu={restaurant.menu}
                   />
                 })
               }
