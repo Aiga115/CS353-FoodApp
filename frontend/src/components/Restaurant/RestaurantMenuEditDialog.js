@@ -8,9 +8,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Stack from "@mui/material/Stack";
 import { Typography } from '@mui/material';
 
-export default function RestaurantMenuEditDialog({ open, setOpen, menu }) {
+export default function RestaurantMenuEditDialog({ open, setOpen}) {
 
-    console.log("menu: ", menu)
     const handleClose = () => {
         setOpen(false);
     };
@@ -23,7 +22,7 @@ export default function RestaurantMenuEditDialog({ open, setOpen, menu }) {
     }
     return (
         <div>
-            <Dialog open={open} onClose={handleClose}>
+            {/* <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Restaurant's Menu</DialogTitle>
                 <DialogContent>
                     {
@@ -73,7 +72,7 @@ export default function RestaurantMenuEditDialog({ open, setOpen, menu }) {
                     <Button onClick={handleSubmit}>Save Changes</Button>
                     <Button onClick={handleClose}>Cancel</Button>
                 </DialogActions>
-            </Dialog>
+            </Dialog> */}
         </div>
     );
 }

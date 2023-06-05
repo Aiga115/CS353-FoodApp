@@ -17,12 +17,13 @@ import { useStateContext } from '../../App';
 export default function RestaurantCard(props) {
     const [open, setOpen] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
-    const { user } = React.useContext();
+    const { user } = useStateContext();
     const token = Cookies.get("Food");
-    const isAdmin = user?.data?.role === 'ROLE_RESTAURANT_ADMIN'
+    const isAdmin = user?.data?.role === 'ROLE_ADMIN'
     const isRestaurantOwner = user?.data?.role === 'ROLE_RESTAURANT_OWNER'
     const isDeliveryPerson = user?.data?.role === 'ROLE_DELIVERY_PERSON'
-
+    const isCustomer = user?.data?.role === 'ROLE_CUSTOMER'
+    console.log("props: ", props)
     // when admin deleted restaurant function
     const onDeleteRestaurant = () => {
         const restaurantNAME = 1
@@ -78,11 +79,11 @@ export default function RestaurantCard(props) {
                             <Typography variant='subtitle2'>
                                 Opening Hours
                             </Typography>
-                            <Typography variant='subtitle2'>{props.openingHours}</Typography>
+                            <Typography variant='subtitle2'>{props.openHours}</Typography>
                         </Stack>
                     </Box>
                     {
-                        props?.isAdmin && <Box spacing={1} mt={.5} mb={1.5}>
+                        isAdmin && <Box spacing={1} mt={.5} mb={1.5}>
                             <Stack direction="row" justifyContent="space-between">
                                 <Typography variant='subtitle2'>
                                     Number of orders
@@ -97,16 +98,18 @@ export default function RestaurantCard(props) {
                             </Stack>
                         </Box>
                     }
-                    <Rating name="read-only" value={props.rating} readOnly />
+                   {
+                    isCustomer &&  <Rating name="read-only" value={props.rating} readOnly />
+                   }
                 </CardContent>
                 {
-                    props?.isRestaurantOwner && <CardActions>
+                    isRestaurantOwner && <CardActions>
                         <Button variant='contained' onClick={() => setOpen(true)}>Edit</Button>
                         <Button variant='contained' onClick={() => setOpenMenu(true)}>Edit Menu</Button>
                     </CardActions>
                 }
                 {
-                    props?.isAdmin && <CardActions>
+                    isAdmin && <CardActions>
                         <Button onClick={() => onDeleteRestaurant(props.id)}></Button>
                     </CardActions>
                 }
